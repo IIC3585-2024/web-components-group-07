@@ -65,10 +65,12 @@ class TodoList extends HTMLElement {
                 padding: 10px;
                 margin: 10px 0;
                 background-color: #f9f9f9;
-                cursor: pointer;
             }
             .done {
                 cursor: pointer;
+                float: left;
+                cursor: pointer;
+                margin-right: 10px;
             }
             .remove {
                 color: white;
@@ -88,26 +90,19 @@ class TodoList extends HTMLElement {
         
         this.render();
 
-        button.addEventListener('click', () => {
+        const addTodoFromInput = () => {
             this.addTodo({
                 text: input.value,
                 done: false
             });
             input.value = '';
         }
-        );
-
+        button.addEventListener('click', addTodoFromInput);
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                this.addTodo({
-                    text: input.value,
-                    done: false
-                });
-                input.value = '';
+                addTodoFromInput();
             }
-        }
-
-        );
+        });
     }
 
     addTodo(todo) {
@@ -118,6 +113,7 @@ class TodoList extends HTMLElement {
     render() {
         const list = this.shadowRoot.querySelector('.list');
         list.innerHTML = '';
+
         this.todos.forEach((todo, index) => {
             const item = document.createElement('li');
             item.setAttribute('class', 'item');
@@ -127,17 +123,15 @@ class TodoList extends HTMLElement {
             const doneButton = document.createElement('input');
             doneButton.setAttribute('type', 'checkbox');
             doneButton.classList.add('done');
-            doneButton.style.float = 'left';
-            doneButton.style.cursor = 'pointer';
-            doneButton.style.marginRight = '10px';
+            
             doneButton.checked = todo.done;
 
             doneButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.todos[index].done = !this.todos[index].done;
                 this.render();
-            }
-            );
+            });
+
             // add button to remove todo
             const removeButton = document.createElement('button');
             removeButton.classList.add('remove');
@@ -147,19 +141,13 @@ class TodoList extends HTMLElement {
                 e.stopPropagation();
                 this.todos.splice(index, 1);
                 this.render();
-            }
-            );
+            });
             
             item.appendChild(removeButton);
             item.appendChild(doneButton);
-
         
             list.appendChild(item);
-            item.addEventListener('click', () => {
-                this.todos[index].done = !this.todos[index].done;
-                this.render();
-            }
-            );
+            
             if (todo.done) {
                 item.style.textDecoration = 'line-through';
             }
