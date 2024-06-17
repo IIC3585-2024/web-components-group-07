@@ -99,7 +99,7 @@ class sellItem extends HTMLElement {
             .wrapper {
                 position: relative;
                 font-family: Arial, Helvetica, sans-serif;
-                max-width: 300px;
+                width: 250px;
                 margin: 5px;
                 padding: 10px;
                 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
@@ -113,7 +113,7 @@ class sellItem extends HTMLElement {
                 width: 100%;
                 height: 150px;
                 text-align: center;
-                object-fit: cover;
+                object-fit: contain;
                 border-radius: 5px;
                 display: block;
             }
@@ -121,6 +121,9 @@ class sellItem extends HTMLElement {
                 font-size: 1.2em;
                 text-align: center;
                 margin: 10px 0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
             .price-div {
                 display: flex;
