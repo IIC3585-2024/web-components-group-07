@@ -13,3 +13,14 @@
 p {
     color: blue;
 }
+
+.container {
+    min-height: 20rem;
+}
+
+.name {
+    margin-top: 30px;
+    font-weight: bold;
+    color: magenta;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
