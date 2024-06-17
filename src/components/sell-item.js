@@ -55,9 +55,10 @@ class sellItem extends HTMLElement {
             discount.textContent = this.getAttribute('discount') + '% off';
             discount.setAttribute('class', 'discount');
 
-            discountDiv.appendChild(discountPrice);
+            priceDiv.appendChild(discountPrice);
             discountDiv.appendChild(discount);
-            priceDiv.appendChild(discountDiv);
+
+            wrapper.appendChild(discountDiv);
 
         }
         attrDiv.appendChild(priceDiv);
@@ -96,8 +97,10 @@ class sellItem extends HTMLElement {
         const style = document.createElement('style');
         style.textContent = `
             .wrapper {
+                position: relative;
+                font-family: Arial, Helvetica, sans-serif;
                 max-width: 300px;
-                margin: auto;
+                margin: 5px;
                 padding: 10px;
                 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
                 background-color: white;
@@ -124,16 +127,24 @@ class sellItem extends HTMLElement {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                min-height: 70px;
+                min-height: 50px;
             }
             .price {
                 font-size: 1.5em;
                 margin: 0;
             }
             .discount-div {
-                display: flex;
-                flex-direction: row;
-                margin-left: 40px;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background-color: red;
+                color: white;
+                padding: 5px 10px;
+                font-size: 14px;
+                font-weight: bold;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                z-index: 1;
             }
             .discount-price {
                 font-size: 1.5em;
@@ -164,9 +175,6 @@ class sellItem extends HTMLElement {
             .rating {
                 font-size: 1em;
                 margin-left: 5px;
-            }
-            p {
-                margin: 0;
             }
         `;
 

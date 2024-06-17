@@ -20,6 +20,15 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  justify-content: center;
+}
+
+.option-container {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: center;
 }
 
 @media (prefers-color-scheme: light) {
@@ -27,4 +36,10 @@ body {
     color: #213547;
     background-color: #ffffff;
   }
+}
+
+.icon-img {
+  width: 100px;
+  height: auto;
+  margin: 15px;
 }
