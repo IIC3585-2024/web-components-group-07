@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sell Item Card Example</title>
     <script type="module" src="/src/components/lit-sell-item.js"defer></script>
+    <link rel="stylesheet" href="../src/main.css" />
 </head>
 <body>
+    <img class="icon-img top-fixed" src="./Lit icon.png">
     <div class="container">
         <lit-sell-item 
             name="Sell Item Card Example"
@@ -15,6 +17,12 @@
             discount="10"
             discountPrice="90"
             rating="4.0"
+        ></lit-sell-item>
+        <lit-sell-item 
+            name="Sell Item Card Example"
+            img="https://via.placeholder.com/120"
+            price="100"
+            rating="2.0"
         ></lit-sell-item>
     </div>
 

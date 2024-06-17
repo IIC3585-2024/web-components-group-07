@@ -1,0 +1,11 @@
+.icon-img {
+    width: 50px;
+    height: auto;
+    margin: 15px;
+}
+
+.top-fixed {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
